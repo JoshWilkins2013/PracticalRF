@@ -1,0 +1,56 @@
+// | -------------------------------------------------------------
+// | Markdown Content
+// | -------------------------------------------------------------
+
+.markdown {
+  > * + *,
+  > dl > * + * {
+    margin-top: 1.5rem;
+    margin-bottom: 0;
+  }
+
+  > h1 {
+    text-align: center;
+  }
+
+  > h2 {
+    margin-top: 3rem;
+  }
+
+  > h3 {
+    margin-top: 3rem;
+  }
+
+  > h4 {
+    margin-top: 1.5rem;
+  }
+
+  > h5 {
+    margin-top: 1rem;
+  }
+
+  > h6 {
+    margin-top: 1rem;
+  }
+
+  .image_wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  img + em {
+    display: block;
+    text-align: center;
+    margin-top: 1rem;
+    font-size: 0.8rem;
+  }
+
+  > *:first-child {
+    margin-top: 0;
+  }
+
+  .notification {
+    text-align: center;
+  }
+}
