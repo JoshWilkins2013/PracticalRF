@@ -1,4 +1,8 @@
-<plot-window>
+---
+const { amplitude = 100 } = Astro.props
+---
+
+<plot-window amplitude={amplitude}>
   <canvas></canvas>
 </plot-window>
 
@@ -12,7 +16,6 @@
   class PlotWindow extends HTMLElement {
     constructor() {
       super();
-      let count = 0;
 
       const createAnimationFrame = (callback, targetFrameRate, timePrevious, timeCurrent) => {
         if (typeof timePrevious === 'number' && typeof timeCurrent === 'number') {
@@ -71,10 +74,8 @@
 
       let theta = 0;
       let sine = this.querySelector('canvas');
-      createSine(sine, 50, theta);
-
-      const heartButton = this.querySelector('button');
-      const countSpan = this.querySelector('span');
+      let amplitude = this.getAttribute('amplitude');
+      createSine(sine, amplitude, theta);
     }
   }
   customElements.define('plot-window', PlotWindow);
