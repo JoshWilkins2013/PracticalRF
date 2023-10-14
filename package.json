@@ -1,0 +1,19 @@
+{
+  "name": "practicalrf",
+  "version": "1.0.0",
+  "description": "Easy to understand RF principles",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JoshWilkins2013/PracticalRF.git"
+  },
+  "author": "Joshua Wilkins",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JoshWilkins2013/PracticalRF/issues"
+  },
+  "homepage": "https://github.com/JoshWilkins2013/PracticalRF#readme"
+}
