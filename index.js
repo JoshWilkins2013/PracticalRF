@@ -1,6 +1,4 @@
-import './index.css';
-
-import { createAnimationFrame } from './engine';
+import { createAnimationFrame } from './engine.js';
 
 function animation(id, amp, theta) {
   let sine = document.getElementById(id);
@@ -14,7 +12,7 @@ function animation(id, amp, theta) {
 
   const num_waves = 2;
 
-  const sy = sine_window.height - sine_window.height / 2;
+  const sy = sine.height - sine.height / 2;
   let last_y = sy + amp * Math.sin(theta);
   ctx.moveTo(0, last_y);
 
