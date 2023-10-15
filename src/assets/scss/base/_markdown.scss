@@ -39,6 +39,14 @@
     justify-content: center;
   }
 
+  img {
+    filter: invert(48%) sepia(30%) saturate(3207%);
+  }
+
+  em {
+    filter: invert(48%) sepia(30%) saturate(3207%);
+  }
+
   img + em {
     display: block;
     text-align: center;

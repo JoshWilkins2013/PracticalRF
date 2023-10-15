@@ -1,0 +1,73 @@
+---
+layout: ../../../layouts/MarkdownLayout.astro
+title: Mixers
+---
+
+import { Icon } from 'astro-icon'
+import { Notification } from 'accessible-astro-components'
+import PlotWindow from '../../../components/PlotWindow.astro';
+
+# What is an RF Mixer
+
+---
+
+RF mixers are generally *passive components* whose main function combine
+two signals.
+
+<div class="image_wrapper">
+    <PlotWindow amplitude="65"></PlotWindow>
+    ![Varible RF Attenuator Symbol](./Images/Symbol.png)
+    <PlotWindow amplitude="45"></PlotWindow>
+</div>
+<div class="image_wrapper">
+    <PlotWindow amplitude="10"></PlotWindow>
+</div>
+
+## Ports
+
+---
+
+- RF:   This is the input used for the signal whose frequency is to be changed. It is typically the incoming signal or equivalent and it is normally at a relatively low level compered to the other input.
+- LO:   This is for the local oscillator signal. The signal input level for this port is generally much larger than that for the RF input.
+- IF:   This is the output port for the mixer. It is the port where the "mixed" signal appears.
+
+# Up-Conversion
+
+---
+
+# Down-Conversion
+
+---
+
+<div class="image_wrapper">
+![RF Mixer Symbol](./Images/Symbol.png)
+*RF Mixer Symbol*
+</div>
+
+## Properties
+
+Important properties of an RF Mixer are:
+- Conversion Gain or Loss - lowers the noise impact of following stages.
+- Intercept Point (Linearity) - impacts receiver blocking and interferer performance.
+- Ports Isolation (LO-to-RF, LO-to-IF, RF-to-IF) - want to minimize interaction
+between the RF, IF, and LO ports.
+- Noise Figure - impacts receiver sensitivity.
+- High-order spurious response rejection.
+- Image Noise suppression – improves system noise figure.
+- Operating Frequency Range
+
+## Types
+
+- Unbalanced
+- Single balanced
+- Double balanced
+- Triple balanced
+
+## Links / Resources
+
+---
+
+-https://www.electronics-notes.com/articles/radio/rf-mixer/rf-mixing-basics.php
+
+
+- A Mixer can be used as a phase detector or as a demodulator

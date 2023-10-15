@@ -1,0 +1,61 @@
+---
+layout: ../../../layouts/MarkdownLayout.astro
+title: Couplers
+---
+
+import { Icon } from 'astro-icon'
+import { Notification } from 'accessible-astro-components'
+import PlotWindow from '../../../components/PlotWindow.astro';
+
+# What is an RF Coupler
+
+---
+
+An RF coupler is a *passive component* that essentially siphons part of
+a signal off to another path. The *through path* is ideally unaffected, but
+has some loss.
+
+<div class="image_wrapper">
+    <div>
+        <PlotWindow amplitude="65"></PlotWindow>
+    </div>
+    <div>
+        <br/><br/>
+        ![Varible RF Attenuator Symbol](./Images/Symbol.png)
+    </div>
+    <div>
+        <PlotWindow amplitude="45"></PlotWindow>
+        <br/>
+        <PlotWindow amplitude="10"></PlotWindow>
+    </div>
+</div>
+
+
+# Basic Coupler
+
+---
+
+The relative amount that is siphoned to the coupled path is called the
+*coupling ratio* or *coupling coefficient*. This ratio is a controlled
+parameter in the creation of a coupler and dependent on system requirements.
+
+- Directional couplers sample signal from the main line in forward direction
+- Bi-directional couplers have two coupled ports to sample signal from the forward
+or reflected signal paths as needed
+- Dual directional couplers allow simulataneous sampling of both thru- and reflected
+signal power.
+
+<div class="image_wrapper">
+    ![Fixed RF Amplifier Symbol](./Images/Symbol.png)
+    *Fixed RF Amplifier Symbol*
+</div>
+
+Couplers are widely used in RF systems for a variety of functions
+including power monitoring, antenna reflection monitoring,
+automated gain control, and electrical test and measurement among many others.
+
+# Links / Resources
+
+---
+
+- https://www.minicircuits.com/products/RF_couplers.html
