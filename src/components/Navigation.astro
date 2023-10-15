@@ -1,5 +1,4 @@
 ---
-import ResponsiveToggle from './ResponsiveToggle.astro'
 import { DarkMode } from 'accessible-astro-components'
 import { Image } from "astro:assets"
 import logo from "../assets/img/logo.svg"
@@ -8,7 +7,7 @@ import logo from "../assets/img/logo.svg"
 <div id="main-navigation" class="is-desktop py-8">
   <div class="container">
     <a href="/" class="flex items-center gap-2 !no-underline">
-      <Image src={logo} alt="Your Logo" width="47" height="37" />
+      <Image src={logo} alt="Logo" width="47" height="37" />
       <span class="font-bold">Practical RF</span>
     </a>
     <div class="wrapper">
@@ -18,7 +17,6 @@ import logo from "../assets/img/logo.svg"
         </ul>
       </nav>
       <DarkMode />
-      <ResponsiveToggle />
     </div>
     <nav class="mobile-menu" aria-label="Main navigation mobile">
       <ul class="menu">
@@ -33,26 +31,6 @@ import logo from "../assets/img/logo.svg"
   const mainNav = document.querySelector('#main-navigation')
   const mainMenu = mainNav.querySelector('ul')
   const dropdownMenus = [...document.querySelectorAll('.has-dropdown button')]
-
-  // functions
-  const setActiveMenuItem = () => {
-    const mobileDesktopMenus = mainNav.querySelectorAll('nav > ul')
-    const currenPathname = window.location.pathname
-
-    mobileDesktopMenus.forEach((menu) => {
-      const menuItems = [...menu.querySelectorAll('a:not([rel*="external"])')] as HTMLAnchorElement[]
-
-      menuItems.forEach((menuItem) => {
-        if (currenPathname.includes(menuItem.pathname.replaceAll('/', '')) && menuItem.textContent !== 'Home') {
-          menuItem.classList.add('is-active')
-          menuItem.setAttribute('aria-current', 'page')
-        } else if (menuItem.textContent === 'Home' && currenPathname === '/') {
-          menuItem.classList.add('is-active')
-          menuItem.setAttribute('aria-current', 'page')
-        }
-      })
-    })
-  }
 
   const checkMenuSize = () => {
     const mainNavWidth = mainNav.getBoundingClientRect().width
@@ -194,7 +172,6 @@ import logo from "../assets/img/logo.svg"
       dropdownMenu.addEventListener('click', toggleDropdownMenu)
     })
 
-  setActiveMenuItem()
   checkMenuSize()
 
   window.addEventListener('resize', checkMenuSize)
@@ -247,10 +224,6 @@ import logo from "../assets/img/logo.svg"
         z-index: -99;
         position: absolute;
         left: 0;
-      }
-
-      .responsive-toggle {
-        display: block;
       }
     }
 
