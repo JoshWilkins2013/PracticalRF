@@ -1,8 +1,8 @@
 ---
-const { amplitude = 100 } = Astro.props
+const { amplitude=65, num_waves=2 } = Astro.props
 ---
 
-<plot-window amplitude={amplitude}>
+<plot-window amplitude={amplitude}, num_waves={num_waves}>
   <canvas></canvas>
 </plot-window>
 
@@ -36,7 +36,7 @@ const { amplitude = 100 } = Astro.props
         );
       };
 
-      const animation = (sine, amp, theta) => {
+      const animation = (sine, amp, num_waves, theta) => {
         let ctx = sine.getContext('2d');
 
         ctx.lineWidth = 2;
@@ -44,8 +44,6 @@ const { amplitude = 100 } = Astro.props
 
         ctx.clearRect(0, 0, sine.width, sine.height);
         ctx.beginPath();
-
-        const num_waves = 2;
 
         const sy = sine.height - sine.height / 2;
         let last_y = sy + amp * Math.sin(theta);
@@ -64,10 +62,10 @@ const { amplitude = 100 } = Astro.props
 
       console.info('Initialized.');
 
-      const createSine = (sine_id, amp, theta) => {
+      const createSine = (sine_id, amp, num_waves, theta) => {
         return createAnimationFrame(() => {
-          theta -= 0.1;
-          animation(sine_id, amp, theta);
+          theta -= 0.03 * num_waves;
+          animation(sine_id, amp, num_waves, theta);
           return true;
         }, 120);
       };
@@ -75,7 +73,8 @@ const { amplitude = 100 } = Astro.props
       let theta = 0;
       let sine = this.querySelector('canvas');
       let amplitude = this.getAttribute('amplitude');
-      createSine(sine, amplitude, theta);
+      let num_waves = this.getAttribute('num_waves');
+      createSine(sine, amplitude, num_waves, theta);
     }
   }
   customElements.define('plot-window', PlotWindow);

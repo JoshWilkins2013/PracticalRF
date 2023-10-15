@@ -11,63 +11,109 @@ import PlotWindow from '../../../components/PlotWindow.astro';
 
 ---
 
-RF mixers are generally *passive components* whose main function combine
-two signals.
+Mixers are RF components whose main function is to multiply two signals. This multiplication
+results in a frequency shift.
 
 <div class="image_wrapper">
-    <PlotWindow amplitude="65"></PlotWindow>
+    <PlotWindow num_waves="4"></PlotWindow>
     ![Varible RF Attenuator Symbol](./Images/Symbol.png)
-    <PlotWindow amplitude="45"></PlotWindow>
+    <PlotWindow amplitude="65"></PlotWindow>
 </div>
 <div class="image_wrapper">
-    <PlotWindow amplitude="10"></PlotWindow>
+    <PlotWindow amplitude="65"></PlotWindow>
 </div>
 
 ## Ports
 
 ---
 
-- RF:   This is the input used for the signal whose frequency is to be changed. It is typically the incoming signal or equivalent and it is normally at a relatively low level compered to the other input.
-- LO:   This is for the local oscillator signal. The signal input level for this port is generally much larger than that for the RF input.
-- IF:   This is the output port for the mixer. It is the port where the "mixed" signal appears.
-
-# Up-Conversion
-
----
-
-# Down-Conversion
-
----
+A mixer has 3 ports; The RF port (for the signal of interest), the LO port (for the Local Oscillator),
+and the IF port (for the Intermediate Frequency). The LO port is an input and it drives the mixer. The RF
+and IF ports are bi-directional, but need to be opposite in direction.
 
 <div class="image_wrapper">
 ![RF Mixer Symbol](./Images/Symbol.png)
 *RF Mixer Symbol*
 </div>
 
+## Up-Conversion
+
+---
+
+A mixer that converts a signal from a lower frequency to a higher frequency is called an up-converter.
+
+<div class="image_wrapper">
+    <PlotWindow num_waves="4"></PlotWindow>
+    ![Varible RF Attenuator Symbol](./Images/Symbol.png)
+    <PlotWindow amplitude="65"></PlotWindow>
+</div>
+<div class="image_wrapper">
+    <PlotWindow amplitude="65"></PlotWindow>
+</div>
+
+An up-converter is generally used at the front-end of a *transmitter* and is usually followed by an amplifier. When
+these are packaged together, it is called a *Block Up-Converter (BUC)*.
+
+## Down-Conversion
+
+---
+
+Reciprocally, a mixer that converts a signal from a higher frequency to a lower frequency is called a *down-converter*.
+When the LO frequency < the RF frequency, this is called *low-side injection* and the mixer is a *low-side
+downconverter*. When the LO frequency > the RF frequency, this is called *high-side injection* and the mixer is a
+*high-side downconverter*.
+
+<div class="image_wrapper">
+    <PlotWindow num_waves="4"></PlotWindow>
+    ![Varible RF Attenuator Symbol](./Images/Symbol.png)
+    <PlotWindow amplitude="65"></PlotWindow>
+</div>
+<div class="image_wrapper">
+    <PlotWindow amplitude="65"></PlotWindow>
+</div>
+
+A down-converter is generally used at the front-end of a *receiver* and is followed by an amplifier. When these
+components are packaged together, it is called a *Low Noise Block Converter (LNB)*.
+
+## Uses
+
+---
+
+- Frequency Translation
+
+The most obvious usage of a mixer is to change (or translate) the frequency of a signal.
+
+Some less obvious uses of a mixer include
+- Phase Detection
+- Demodulation
+
 ## Properties
 
-Important properties of an RF Mixer are:
+---
+
+The important qualities of a mixer include:
+
+- Operating Frequency Range
 - Conversion Gain or Loss - lowers the noise impact of following stages.
 - Intercept Point (Linearity) - impacts receiver blocking and interferer performance.
-- Ports Isolation (LO-to-RF, LO-to-IF, RF-to-IF) - want to minimize interaction
-between the RF, IF, and LO ports.
+- Ports Isolation (LO-to-RF, LO-to-IF, RF-to-IF) - want to minimize interaction between the RF, IF, and LO ports.
 - Noise Figure - impacts receiver sensitivity.
 - High-order spurious response rejection.
 - Image Noise suppression – improves system noise figure.
-- Operating Frequency Range
+
 
 ## Types
 
-- Unbalanced
-- Single balanced
-- Double balanced
-- Triple balanced
+---
+
+- Unbalanced: Simply mixes two signals together; The output contains all of inter-modulation products as well as
+some leakage of the original signals.
+
+- Balanced: Contains a *balun(s)* or balancing circuit(s). Isolates the LO port from the RF port to reduce the
+level of inter-modulation products.
 
 ## Links / Resources
 
 ---
 
 -https://www.electronics-notes.com/articles/radio/rf-mixer/rf-mixing-basics.php
-
-
-- A Mixer can be used as a phase detector or as a demodulator

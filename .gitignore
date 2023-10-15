@@ -27,4 +27,5 @@ yarn-error.log*
 package-lock.json
 
 # /Draw.io Backups
-.bkp
+.$*.png.bkp
+.$*.png.dtmp

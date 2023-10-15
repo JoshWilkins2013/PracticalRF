@@ -3,14 +3,49 @@ layout: ../../layouts/MarkdownLayout.astro
 title: Attenuators
 ---
 
+import PlotWindow from '../../components/PlotWindow.astro';
+import Feature from '../../components/Feature.astro';
+
 # What is a Component
 
 ---
 
-For the context of these files it is:
-
 An essential building block for RF designs
 
+
+# 2 Port Components
+
+---
+
+<div class="image_wrapper">
+    <PlotWindow num_waves="4"></PlotWindow>
+    ![Varible RF Attenuator Symbol](./Attenuators/Images/Fixed_Symbol.png)
+    <PlotWindow amplitude="65"></PlotWindow>
+</div>
+
+
+<div class="image_wrapper">
+<Feature title="Attenuator">Reduces signal power</Feature>
+<Feature title="Amplifier">Increases signal power</Feature>
+</div>
+
+# 3 Port Components
+
+---
+
+<div class="image_wrapper">
+    <PlotWindow num_waves="4"></PlotWindow>
+    ![Varible RF Attenuator Symbol](./Mixers/Images/Symbol.png)
+    <PlotWindow amplitude="65"></PlotWindow>
+</div>
+<div class="image_wrapper">
+    <PlotWindow amplitude="65"></PlotWindow>
+</div>
+
+<div class="image_wrapper">
+<Feature title="Coupler">Siphons signal power</Feature>
+<Feature title="Mixer">Multiplies signals</Feature>
+</div>
 
 
 - Add selection thing that chooses a component to show its effect? 
